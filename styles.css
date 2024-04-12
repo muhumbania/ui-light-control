@@ -2,3 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+input[type="range"]::-webkit-slider-thumb:focus {
+    /* Properties to style the focus ring (e.g., outline) */
+    outline: 2px solid rgb(23, 175, 31); /* Example outline style */
+  }
