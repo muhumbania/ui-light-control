@@ -1,21 +1,31 @@
-const http = require('http');
-const fs = require('fs');
-const index = fs.readFileSync( 'index.html');
+import fs from 'fs';
+// import { createServer } from 'http';
+import { SerialPort } from 'serialport';
 
-const SerialPort = require('serialport');
-const parsers = SerialPort.parsers;
+// Import parsers from SerialPort
+import pkg from '@serialport/parser-readline';
+const { Readline } = pkg;
 
-const parser = new parsers.Readline({
-    delimiter: '\r\n'
-});
+// Read the contents of 'index.html'
+const index = fs.readFileSync('index.html');
 
-const port = new SerialPort('/dev/tty.wchusbserialfa1410',{ 
+const port = new SerialPort({
+    path: '\Device\Silabser0',
     baudRate: 9600,
     dataBits: 8,
     parity: 'none',
     stopBits: 1,
     flowControl: false
 });
+
+// Create a new instance of the Readline parser
+const parser = port.pipe(new Readline({ delimiter: '\r\n' }));
+
+
+
+
+
+
 
 port.pipe(parser);
 
