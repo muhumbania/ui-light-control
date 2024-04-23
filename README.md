@@ -3,5 +3,10 @@
 A ui animation connected to a board for bulb brightness control
 
 The technologies used are html, css and JavaScript for the frontend
-and the backend, an esp8266 is used as a server to receive signal
-from the frontend and control the bulb brightness 
+and the backend,
+
+There is an node server receiving data from the backend using a websocket
+After the data is received, its then sent to an arduino through a serial port.
+
+On the Arduino end there is an esp8266 reading on the serial port and control the bulb brightness 
+according to the data received 
