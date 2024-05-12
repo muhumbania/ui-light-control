@@ -10,3 +10,5 @@ After the data is received, its then sent to an arduino through a serial port.
 
 On the Arduino end there is an esp8266 reading on the serial port and control the bulb brightness 
 according to the data received 
+
+To try it out, make sure you've installed the npm dependecies, by typing nom install 
